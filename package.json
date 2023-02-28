@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "calc-js": "^2.0.7"
+  },
+  "name": "s-node-les",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aalexblade/s-node-les.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aalexblade/s-node-les/issues"
+  },
+  "homepage": "https://github.com/aalexblade/s-node-les#readme",
+  "description": "y"
+}
