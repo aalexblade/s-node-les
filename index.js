@@ -1,44 +1,25 @@
-// const Calc = require('calc-js').Calc;
 
-// console.log(process.argv);
-// const [, , a, b] = process.argv
+const http = require('http');
 
-// console.log(new Calc(parseInt(a)).sum(parseInt(b)).finish());
+const PORT = 8081;
 
-// ===============================================
+const requestHandler = (request, response) => {
 
-// const path = require('path');
+    if (request.url.indexOf('/home') >= 0) {
+        response.writeHead(200, { 'Content-type': 'text/json' });
+        // response.end('<h1>Goit</h1>');
+    return response.end('{"url": "homepage"}');
+    }
+       response.writeHead(200, { 'Content-type': 'text/json' });
+        // response.end('<h1>Goit</h1>');
+    return response.end('{"url": "other"}');
+};
 
-// console.log(path.resolve('dateUtils.js'));
+const server = http.createServer(requestHandler);
 
-// ===================================================
-
-// const fs = require('fs');
-
-// fs.readFile('./data.txt', 'utf8', (error, data) => {
-//     if (error) {
-//         console.log(error);
-//     };
-//     console.log(data);
-// });
-
-const fs = require('fs').promises;
-const path = require('path');
-
-(async () => {
-    try { 
-    const data = await fs.readFile('./data.txt', 'utf8')
-        console.log(data)
-
-        const newContent = `${data} school`
-        await fs.writeFile('./data1.txt', newContent, 'utf8');
-
-        // await fs.rename('./dataUtilsNewName.js', './tmp/dataUtilsNewName.js')
-
-        console.log(await fs.readdir('./tmp'));
-        await fs.unlink('tmp/dataUtilsNewName.js')
-
-    } catch (error) {
-        console.error(error)
-        }
-})();
+server.listen(8081, (error) => {
+    if (error) {
+        console.error('Error at server launch:', error);
+    }
+    console.log(`Seerver works at port ${PORT}`);
+});
